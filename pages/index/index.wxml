@@ -1,0 +1,23 @@
+<!--index.wxml-->
+<view class='Page'>
+  <view class="siteWrapper">
+    <view class="stepBox">
+      <view class="box">
+        <view class="{{item.status ==='1' ? 'greenSigleStep' : 'sigleStep'}}" wx:for="{{steps}}" wx:for-item="item" wx:key="text">
+          <view class="topShelter" wx:if="{{item.first}}"></view>
+          <view class="view_item">
+            <!-- 打钩 -->
+            <icon class="icon" wx:if="{{item.status === '1'}}" type="success" size="14" />
+            <!-- 圆圈 -->
+            <view class="gray" wx:if="{{item.status === '0'}}"></view>
+          </view>
+          <view class="stepConBox" style="color: {{item.status ==='1' ? '#00cf95' : '#969799'}}">
+            <view>步骤{{item.text}}</view>
+            <view class="timebox">{{ item.plan }}</view>
+          </view>
+          <view class="bottomShelter" wx:if="{{item.end}}"></view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
